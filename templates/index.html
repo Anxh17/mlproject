@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Exam Performance Predictor</title>
+    
+    <!-- Bootstrap 5 & Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-hover: #3a56d4;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --card-bg: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-muted: #6c757d;
+            --shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: var(--text-dark);
+        }
+
+        .landing-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 3.5rem 2.5rem;
+            width: 100%;
+            max-width: 560px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-icon {
+            font-size: 4.5rem;
+            margin-bottom: 1.25rem;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .landing-title {
+            font-size: 1.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .landing-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .btn-start {
+            background: var(--primary);
+            border: none;
+            border-radius: 14px;
+            padding: 1rem 3rem;
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(67, 97, 238, 0.35);
+            cursor: pointer;
+        }
+
+        .btn-start:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(67, 97, 238, 0.45);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-start:active {
+            transform: translateY(-1px);
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 2.75rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: #f8f9ff;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            border: 1px solid #e9ecef;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 576px) {
+            .landing-card { 
+                padding: 2.25rem 1.5rem; 
+                border-radius: 20px;
+            }
+            .landing-title { font-size: 1.65rem; }
+            .landing-subtitle { font-size: 1rem; }
+            .btn-start { 
+                width: 100%; 
+                padding: 0.95rem;
+                font-size: 1.05rem;
+            }
+            .hero-icon { font-size: 3.5rem; }
+        }
+
+        /* Subtle background pattern */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(255,255,255,0.15) 2px, transparent 0),
+                radial-gradient(circle at 75px 75px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 100px 100px;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-card">
+        <div class="hero-icon">🎓✨</div>
+        
+        <h1 class="landing-title">Student Exam Performance Predictor</h1>
+        
+        <p class="landing-subtitle">
+            Leverage machine learning to forecast mathematics scores based on student demographics, 
+            preparation, and academic performance. Fast, accurate, and easy to use.
+        </p>
+        
+        <!-- Redirects to /predictdata Flask route -->
+        <a href="/predictdata" class="btn-start">
+            Get Started 
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
+        
+        <div class="features">
+            <div class="feature-tag">⚡ Instant Results</div>
+            <div class="feature-tag">🤖 ML-Powered</div>
+            <div class="feature-tag">🔐 Private & Secure</div>
+        </div>
+        
+        <p class="footer-note">
+            Built with Flask • Scikit-Learn • Pandas
+        </p>
+    </div>
+
+    <!-- Optional: Smooth scroll behavior -->
+    <script>
+        // Add subtle click animation
+        document.querySelector('.btn-start').addEventListener('click', function(e) {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
